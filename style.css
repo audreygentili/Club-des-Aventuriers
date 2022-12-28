@@ -25,6 +25,10 @@ body {
     float: left;
 }
 
+.active {
+    background-color: #5b7f48; 
+}
+
 li a {
     display: block;
     color: white;
@@ -34,5 +38,5 @@ li a {
 }
   
 li a:hover {
-    background-color: #111;
+    background-color: #5b7f48;
 }
