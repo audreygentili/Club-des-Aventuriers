@@ -1,9 +1,10 @@
 body {
     margin: 0;
+    overflow: hidden;
 }
 
 .content {
-    padding: 40px;
+    padding: 60px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -14,10 +15,12 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #1b3c4b;
+    background-color: #2a6b8b;
     position: fixed;
     top: 0;
     width: 100%;
+    height: 60px;
+    text-align: center;
 }
 
 .menu ul li {
@@ -26,17 +29,48 @@ body {
 }
 
 .active {
-    background-color: #5b7f48; 
+    color: #f9e50c; 
+    font-weight: bold;
 }
 
 li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 20px 16px;
     text-decoration: none;
 }
   
 li a:hover {
-    background-color: #5b7f48;
+    color: #f9e50c;
+}
+
+.banniere {
+    border-radius: 0 45px 15px 0;
+    height: 60px;
+}
+
+.bord {
+    display: flex;
+}
+
+.jeu {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.aventure {
+    display: flex;
+    align-items: center;
+}
+
+.objets {
+    list-style-type: none;
+    display: flex;
+}
+
+.obj {
+    cursor: pointer;
 }
