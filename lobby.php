@@ -1,5 +1,6 @@
 <?php
     include_once("connect.php");
+    include("./classes/game.php");
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="icon" href="assets/logo.jpg" type="image/icon type" />
     <link rel="stylesheet" media="screen" type="text/css" charset="utf8" href="css/style.css" />
-    <script type="text/javascript" src="js/create.js"></script>
+    <script type="text/javascript" src="js/lobby.js"></script>
     </head>
     <body>
         <nav class="menu">
@@ -29,16 +30,36 @@
             </ul>
         </nav>
         <div class="content">
-            <h2>Créer une partie</h2>
-
-            <p>Paramètres de la partie</p>
-            <p>Nombre de joueurs : </p><input type="number" name="nb" id="nb" min="1" max="4" value="1"/>
-            <p>Aventure : </p>
-            <select name="aventure" id="aventure">
-                <option value="1" selected="selected">Aventure 1</option>
-                <option value="8">Aventure 8</option>
-            </select>
-            <button id="lobby">Créer</button>
+            <h2>Préparation</h2>
+            <?php
+                $game = unserialize($_SESSION['game']);
+            ?>
+            <p>Nombre de joueurs : <?php
+                    echo $game->get_nb();
+                ?></p>
+            <p>Aventure : <?php
+                    echo $game->get_aventure();
+                ?></p>
+            <p>Code de la partie : </p>
+            <p id="code">
+                <?php
+                    echo $game->get_id();
+                ?>
+            </p>
+            <p>Joueurs :</p>
+            <?php
+                $joueurs = $game->get_joueurs(); 
+                $nbJ = count($joueurs);
+                echo "<p id='nbJ' hidden>".$nbJ."</p>";
+                for ($i = 0; $i < $nbJ; $i++) {
+                    echo "<p>".$joueurs[$i]."</p>";
+                }
+                $host = $game->get_conteur();
+                $nb= $game->get_nb();
+                if ($host == $_SESSION['userId'] && $nbJ == $nb) {
+                    echo "<button id='game'>Commencer</button>";
+                }
+            ?>
         </div>
     </body>
 </html>

@@ -21,7 +21,7 @@
                         echo "<li style='float:right'><a href='inscription.php'>Inscription</a></li>";
                         echo "<li style='float:right'><a href='connexion.php'>Connexion</a></li>";
                     } else {
-                        echo "<li style='float:right'><a href='deconnexion.php'>Déconnexion</a></li>";
+                        echo "<li style='float:right'><a href='deconnexion.php?pseudo=".$_SESSION['pseudo']."'>Déconnexion</a></li>";
                         echo "<li style='float:right'><a href='profile.php'>Profil</a></li>";
                     }
                 ?>
@@ -29,8 +29,15 @@
         </nav>
         <div class="content">
             <h2>Explications</h2>
-            <button id="create">Créer une partie</button>
-            <button id="join">Rejoindre une partie</button>
+            <?php
+                    if (!isset($_SESSION['pseudo'])) {
+                        echo "<a href='inscription.php'>Inscription</a>";
+                        echo "<a href='connexion.php'>Connexion</a>";
+                    } else {
+                        echo "<button id='create'>Créer une partie</button>";
+                        echo "<button id='join'>Rejoindre une partie</button>";
+                    }
+                ?>
         </div>
 
         <script type="text/javascript" src="js/index.js"></script>

@@ -1,6 +1,5 @@
 <?php
     include_once("connect.php");
-    include("classes/user.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +16,15 @@
                 <li><img class="banniere" src="assets/banniere.jpg" /></li>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="rules.php">Règles</a></li>
-                <li style="float:right"><a href="profile.php">Profil</a></li>
-                <li style="float:right"><a href="inscription.php">Inscription</a></li>
-                <li style="float:right"><a class="active" href="connexion.php">Connexion</a></li>
+                <?php
+                    if (!isset($_SESSION['pseudo'])) {
+                        echo "<li style='float:right'><a href='inscription.php'>Inscription</a></li>";
+                        echo "<li style='float:right'><a href='connexion.php'>Connexion</a></li>";
+                    } else {
+                        echo "<li style='float:right'><a href='deconnexion.php?pseudo=".$_SESSION['pseudo']."'>Déconnexion</a></li>";
+                        echo "<li style='float:right'><a href='profile.php'>Profil</a></li>";
+                    }
+                ?>            
             </ul>
         </nav>
         <div class="content">
@@ -39,9 +44,12 @@
                 $res = mysqli_query($db, $rq);
                 mysqli_error($db);
                 if (mysqli_num_rows($res) == 1) {
-	                $_SESSION["pseudo"]= $_POST['pseudo'];
-                    $_SESSION["mdp"]= $_POST['mdp'];
-                    echo "<p>Bienvenue ".$_SESSION["pseudo"]."</p>";
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        $_SESSION["userId"] = $row['userId'];
+                        $_SESSION["pseudo"] = $_POST['pseudo'];
+                        $_SESSION["mdp"] = $_POST['mdp'];
+                    }
+                    header("Location: ./index.php");
                 } else {
                     echo "<p>Identifiants incorrects</p>";
                 }

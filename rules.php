@@ -1,3 +1,7 @@
+<?php
+    include_once("connect.php");
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,9 +17,15 @@
                 <li><img class="banniere" src="assets/banniere.jpg" /></li>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a class="active" href="rules.php">Règles</a></li>
-                <li style="float:right"><a href="profile.php">Profil</a></li>
-                <li style="float:right"><a href="inscription.php">Inscription</a></li>
-                <li style="float:right"><a href="connexion.php">Connexion</a></li>
+                <?php
+                    if (!isset($_SESSION['pseudo'])) {
+                        echo "<li style='float:right'><a href='inscription.php'>Inscription</a></li>";
+                        echo "<li style='float:right'><a href='connexion.php'>Connexion</a></li>";
+                    } else {
+                        echo "<li style='float:right'><a href='deconnexion.php?pseudo=".$_SESSION['pseudo']."'>Déconnexion</a></li>";
+                        echo "<li style='float:right'><a href='profile.php'>Profil</a></li>";
+                    }
+                ?>
             </ul>
         </nav>
         <div class="content">

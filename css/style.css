@@ -50,27 +50,32 @@ li a:hover {
     height: 60px;
 }
 
-.bord {
+.aventure {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .jeu {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
     align-items: center;
 }
 
-.aventure {
-    display: flex;
-    align-items: center;
+img {
+    cursor: pointer;
 }
+
+
 
 .objets {
     list-style-type: none;
     display: flex;
 }
 
-.obj {
-    cursor: pointer;
+
+
+.plateau {
+    position: fixed;
+    left: 0;
 }
