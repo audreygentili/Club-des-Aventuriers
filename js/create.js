@@ -9,6 +9,7 @@ onload = function () {
     let code = Math.floor(Math.random() * 9999);
     console.log(code);  
 
+    // Création de la partie : redirection vers le lobby et initialisation des paramètres
     btn.addEventListener("click", function() {
       console.log("bouton cliqué");
       nb = get("#nb").value;

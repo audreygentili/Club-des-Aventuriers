@@ -22,19 +22,33 @@
                         echo "<li style='float:right'><a href='connexion.php'>Connexion</a></li>";
                     } else {
                         echo "<li style='float:right'><a href='deconnexion.php?pseudo=".$_SESSION['pseudo']."'>Déconnexion</a></li>";
-                        echo "<li style='float:right'><a href='profile.php'>Profil</a></li>";
                     }
                 ?>
             </ul>
         </nav>
         <div class="content">
-            <h2>Explications</h2>
+            <p>Avez-vous déjà combattu un requin, armé d'une loupe et
+                d'un tube de rouge à lèvres ? Ou réparé un moteur avec un
+                chewing-gum et une tapette à souris ? Non ? Alors, il est
+                grand temps de vous y mettre ! <br/>
+                Soyez les bienvenus au CLUB DES AVENTURIERS !
+                <br/>
+                Ensemble, vous vivrez des aventures extraordinaires et vous
+                devrez tenter de sortir de situations pittoresques grâce à vos
+                idées loufoques et perspicaces. De l'imagination, de la logique
+                et un petit grain de folie seront les clefs du succès.</p>
+            <h2>Objectif</h2>
+            <p>Partez ensemble à l’aventure et surmontez les pièges en
+            trouvant des solutions inhabituelles que les autres
+            devront réussir à deviner. Bonne chance !</p>
+            <h2>Jeu</h2>
+            <p>Le Club des Aventuriers est un jeu Piatnik Vienna développé par Spaan & Havighorst, 2022.</p>
             <?php
                     if (!isset($_SESSION['pseudo'])) {
-                        echo "<a href='inscription.php'>Inscription</a>";
+                        echo "<a href='inscription.php'>Inscription</a><br/>";
                         echo "<a href='connexion.php'>Connexion</a>";
                     } else {
-                        echo "<button id='create'>Créer une partie</button>";
+                        echo "<button id='create'>Créer une partie</button><br/>";
                         echo "<button id='join'>Rejoindre une partie</button>";
                     }
                 ?>

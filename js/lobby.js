@@ -10,6 +10,7 @@ onload = function () {
     code = get("#code").innerHTML;
     nbJ = get("#nbJ").innerHTML;
 
+    // Chargement du lobby en attente des autres joueurs
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         console.log(this.readyState);
@@ -31,6 +32,7 @@ onload = function () {
     xmlhttp.open("GET","./ajax/lobbygame.php?code="+code+"&start=no",true);
     xmlhttp.send();
 
+    // L'hôte de la partie peut lancer la partie lorsque les joueurs sont présents
     if (btn != null) {
         btn.addEventListener("click", function() {
             let xmlhttp = new XMLHttpRequest();

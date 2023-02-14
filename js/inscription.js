@@ -7,6 +7,7 @@ onload = function () {
     btn.disabled = true;
     console.log(mdp.value);
 
+    // Inaccessibilité du bouton tant que les mots de passe ne sont pas égaux
     mdp.addEventListener('keyup', (evt) => {
         console.log(evt.target.value);
         if (evt.target.value != mdp1.value) btn.disabled = true;

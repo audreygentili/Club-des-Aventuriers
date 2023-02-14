@@ -22,18 +22,17 @@
                         echo "<li style='float:right'><a href='connexion.php'>Connexion</a></li>";
                     } else {
                         echo "<li style='float:right'><a href='deconnexion.php?pseudo=".$_SESSION['pseudo']."'>Déconnexion</a></li>";
-                        echo "<li style='float:right'><a href='profile.php'>Profil</a></li>";
                     }
                 ?>            
             </ul>
         </nav>
         <div class="content">
         <form id="inscription" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-                <legend>Inscription</legend>
+                <legend>Connexion</legend><br/>
                 <label for="pseudo" >Pseudo</label>
-                <input type="text" name="pseudo" id="pseudo" maxlength="50" />
+                <input type="text" name="pseudo" id="pseudo" maxlength="50" /><br/><br/>
                 <label for="mdp" >Mot de passe</label>
-                <input type="password" name="mdp" id="mdp" maxlength="50" />
+                <input type="password" name="mdp" id="mdp" maxlength="50" /><br/><br/>
                 <input type="submit" name="submit" id="submit" value="Se connecter" />
             </form>
         </div>

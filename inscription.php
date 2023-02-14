@@ -21,7 +21,6 @@
                         echo "<li style='float:right'><a href='connexion.php'>Connexion</a></li>";
                     } else {
                         echo "<li style='float:right'><a href='deconnexion.php?pseudo=".$_SESSION['pseudo']."'>Déconnexion</a></li>";
-                        echo "<li style='float:right'><a href='profile.php'>Profil</a></li>";
                     }
                 ?>
             </ul>
@@ -29,15 +28,15 @@
         <div class="content">
 
             <form id="inscription" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-                <legend>Inscription</legend>
+                <legend>Inscription</legend><br/>
                 <label for="pseudo" >Pseudo</label>
-                <input type="text" name="pseudo" id="pseudo" maxlength="50" />
+                <input type="text" name="pseudo" id="pseudo" maxlength="50" /><br/><br/>
                 <label for="mail" >E-mail</label>
-                <input type="text" name="mail" id="mail" maxlength="80" />
+                <input type="text" name="mail" id="mail" maxlength="80" /><br/><br/>
                 <label for="mdp" >Mot de passe</label>
-                <input type="password" name="mdp" id="mdp" maxlength="50" />
+                <input type="password" name="mdp" id="mdp" maxlength="50" /><br/><br/>
                 <label for="mdp" >Confirmation du mot de passe</label>
-                <input type="password" name="mdp1" id="mdp1" maxlength="50" />
+                <input type="password" name="mdp1" id="mdp1" maxlength="50" /><br/><br/>
                 <input type="submit" name="submit" id="submit" value="S'inscrire" />
             </form>
         </div>
@@ -46,9 +45,8 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $rq = "SELECT * from User WHERE pseudo = '".$_POST['pseudo']."'";
                 $res = mysqli_query($db, $rq);
-                mysqli_error($db);
                 if (mysqli_num_rows($res) == 0) {
-                    $rq1 = "INSERT INTO User(pseudo, email, mdp) VALUES ('".$_POST['pseudo']."', '".$_POST['mail']."', '".$_POST['mdp']."')";
+                    $rq1 = "INSERT INTO User(pseudo, email, mdp, gameId) VALUES ('".$_POST['pseudo']."', '".$_POST['mail']."', '".$_POST['mdp']."', 0)";
                     $res1 = mysqli_query($db, $rq1);
                     if ($res1 === TRUE) {
                         echo "<p>Inscription effectuée</p>";

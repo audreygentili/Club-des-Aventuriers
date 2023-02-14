@@ -5,6 +5,7 @@ onload = function () {
     mdp = get("#mdp");
     btn.disabled = true;
 
+    // Inaccessiblité du bouton tant que le mot de passe n'est pas renseigné
     mdp.addEventListener('keyup', (evt) => {
         if (evt.target.value == "") btn.disabled = true;
         else btn.disabled = false;   

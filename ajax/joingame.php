@@ -1,6 +1,6 @@
 <?php
-    include_once("./connect.php");
-    include("./classes/game.php");
+    include_once("../connect.php");
+    include("../classes/game.php");
 
     // Récupération du code entré
     $code = $_GET["code"];

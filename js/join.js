@@ -8,6 +8,7 @@ onload = function () {
     btn = get("#lobby");  
     error = get("#error"); 
 
+    // Accès à une partie déjà créée et redirection dans le lobby si code de partie valide
     btn.addEventListener("click", function() {
         console.log("bouton cliqué");
         code = get("#code").value;

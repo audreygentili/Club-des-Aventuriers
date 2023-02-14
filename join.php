@@ -1,5 +1,9 @@
 <?php
     include_once("connect.php");
+
+    if (!isset($_SESSION['pseudo'])) {
+        header("Location: index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +27,6 @@
                         echo "<li style='float:right'><a href='connexion.php'>Connexion</a></li>";
                     } else {
                         echo "<li style='float:right'><a href='deconnexion.php?pseudo=".$_SESSION['pseudo']."'>Déconnexion</a></li>";
-                        echo "<li style='float:right'><a href='profile.php'>Profil</a></li>";
                     }
                 ?>
             </ul>

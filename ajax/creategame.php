@@ -1,6 +1,6 @@
 <?php
-    include_once("./connect.php");
-    include("./classes/game.php");
+    include_once("../connect.php");
+    include("../classes/game.php");
     
     $code = $_GET["code"];
     $nb = $_GET["nb"];
@@ -18,7 +18,7 @@
     $rq1 = "SELECT * FROM Game WHERE gameId = '".$code."'";
     $res1 = mysqli_query($db, $rq1);
     if (mysqli_num_rows($res1) == 0) {
-        $rq1 = "INSERT INTO Game(gameId, nb, aventure, mission, vies, conteur) VALUES ('".$code."', '".$nb."', '".$aventure."', '0', '3', '".$conteur."')";
+        $rq1 = "INSERT INTO Game(gameId, nb, aventure, mission, etape, vies, conteur, obj1, obj2, obj3, obj4, obj5, objG1, objG2) VALUES ('".$code."', '".$nb."', '".$aventure."', '0', '0', '3', '".$conteur."', '', '', '', '', '', '', '')";
         $res1 = mysqli_query($db, $rq1);
         if ($res1 === TRUE) {
             echo "<p>Partie créée !</p>";
